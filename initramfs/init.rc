@@ -135,8 +135,8 @@ on fs
 # use movinand second partition as /data. d.moskvitin
     
     mkdir /data
-    mount rfs /dev/block/mmcblk0p2 /data nosuid nodev check=no
-    mount ext4 /dev/block/mmcblk0p2 /data noatime nodiratime errors=continue nobh data=writeback barrier=0 noauto_da_alloc
+    mount rfs /dev/block/stl10 /data nosuid nodev check=no
+    mount ext4 /dev/block/st10 /data noatime nodiratime errors=continue nobh data=writeback barrier=0 noauto_da_alloc
     chown system system /data
     chmod 0771 /data    
     
@@ -169,8 +169,8 @@ on post-fs
 
     # Same reason as /data above
     mkdir /cache
-    mount rfs /dev/block/mmcblk0p1 /cache nosuid nodev check=no
-    mount ext4 /dev/block/mmcblk0p1 /cache noatime nodiratime errors=continue nobh data=writeback barrier=0 noauto_da_alloc
+    mount rfs /dev/block/stl11 /cache nosuid nodev check=no
+    mount ext4 /dev/block/stl11 /cache noatime nodiratime errors=continue nobh data=writeback barrier=0 noauto_da_alloc
     chown system cache /cache
     chmod 0771 /cache
 
