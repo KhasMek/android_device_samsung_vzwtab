@@ -227,11 +227,14 @@ on post-fs
 
     # create dalvik-cache and double-check the perms
     mkdir /data/dalvik-cache 0771 system system
-    mkdir /cache/dalvik-cache 0771 system system
+    mkdir /system/dalvik-cache 0771 system system
+    symlink /system/dalvik-cache /cache/dalvik-cache
     chown system system /data/dalvik-cache
     chown system system /cache/dalvik-cache
+    chown system system /system/dalvik-cache
     chmod 0771 /data/dalvik-cache
     chmod 0771 /cache/dalvik-cache
+    chmod 0771 /system/dalvik-cache
 
     # create the lost+found directories, so as to enforce our permissions
     mkdir /data/lost+found 0770
