@@ -111,6 +111,7 @@ PRODUCT_COPY_FILES += \
         frameworks/base/data/etc/android.hardware.location.xml:system/etc/permissions/android.hardware.location.xml \
 	frameworks/base/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml \
 	frameworks/base/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+	frameworks/base/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml \
 	frameworks/base/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml \
 	frameworks/base/data/etc/android.hardware.sensor.light.xml:system/etc/permissions/android.hardware.sensor.light.xml \
 	frameworks/base/data/etc/android.hardware.touchscreen.multitouch.jazzhand.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.jazzhand.xml \
@@ -147,14 +148,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
        net.connectivity.type=CDMA1 \
        net.interfaces.defaultroute=cdma \
        ro.telephony.ril_class=samsung \
-       mobiledata.interfaces=eth0,ppp0 \
+       mobiledata.interfaces=wlan0,ppp0 \
        ro.sf.hwrotation=90
 
 # These are the hardware-specific settings that are stored in system properties.
 # Note that the only such settings should be the ones that are too low-level to
 # be reachable from resources or other mechanisms.
 PRODUCT_PROPERTY_OVERRIDES += \
-       wifi.interface=eth0 \
+       wifi.interface=wlan0 \
        wifi.supplicant_scan_interval=45 \
        dalvik.vm.heapstartsize=5m \
        dalvik.vm.heapgrowthlimit=48m \
@@ -210,6 +211,8 @@ PRODUCT_COPY_FILES += \
 # copy the filesystem converter
 PRODUCT_COPY_FILES += \
 	device/samsung/vzwtab/updater.sh:updater.sh
+
+$(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4329/device-bcm.mk)
 
 # See comment at the top of this file. This is where the other
 # half of the device-specific product definition file takes care
