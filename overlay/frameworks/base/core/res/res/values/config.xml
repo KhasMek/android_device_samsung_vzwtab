@@ -23,7 +23,11 @@
     <!-- Component name of the default wallpaper. This will be ImageWallpaper if not 
          specified -->
     <!-- <string name="default_wallpaper_component">com.android.wallpaper/.nexus.NexusWallpaper</string> -->
-
+    <!-- Flag indicating whether the surface flinger is inefficient
+         at performing a blur.  Used by parts of the UI to turn off
+         the blur effect where it isn't worth the performance hit.
+         As of Honeycomb, blurring is not supported anymore. -->
+    <bool name="config_sf_slowBlur">true</bool>
     <!-- This string array should be overridden by the device to present a list of network
          attributes.  This is used by the connectivity manager to decide which networks can coexist
          based on the hardware -->
@@ -211,5 +215,8 @@
          available on *any* device with a telephony radio, even if the
          device is data-only. -->
     <bool name="config_voice_capable">false</bool>
+
+ 	<!-- Workaround for devices with broken keyboards -->
+    <bool name="config_forceDisableHardwareKeyboard">true</bool>
 
 </resources>

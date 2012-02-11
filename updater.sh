@@ -36,10 +36,10 @@ rm -rf /sdcard/cyanogenmod.log
 exec >> /sdcard/cyanogenmod.log 2>&1
 
 #
-# flash kernel and recovery
-#
+# flash kernel
 /tmp/bmlwrite /tmp/boot.img /dev/block/bml7
-/tmp/bmlwrite /tmp/boot.img /dev/block/bml8
+# don't flash recovery for now
+#/tmp/bmlwrite /tmp/boot.img /dev/block/bml8
 
 #
 # filesystem conversion
