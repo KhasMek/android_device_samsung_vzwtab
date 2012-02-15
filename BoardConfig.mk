@@ -103,8 +103,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_CUSTOM_BOOTIMG_MK := device/samsung/vzwtab/shbootimg.mk
 TARGET_RECOVERY_PRE_COMMAND := "echo 1 > /cache/.startrecovery; sync;"
-BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/aries-common/recovery/graphics.c
+BOARD_CUSTOM_GRAPHICS := ../../../device/samsung/vzwtab/recovery/graphics.c
 
 # Asserts
 TARGET_OTA_ASSERT_DEVICE := vzwtab,SCH-I800,SPH-P100
-
